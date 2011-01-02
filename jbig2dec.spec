@@ -4,15 +4,14 @@
 
 Summary:	A decoder implementation of the JBIG2 image compression format
 Name:		jbig2dec
-Version:	0.10
-Release:	%mkrel 4
+Version:	0.11
+Release:	%mkrel 1
 License:	GPLv2
 Group:		Graphics
 URL:		http://jbig2dec.sourceforge.net/
-Source0:	http://ghostscript.com/~giles/jbig2/jbig2dec/%{name}-%{version}.tar.bz2
-Patch0:		jbig2dec-0.10-shared.diff
+Source0:	http://ghostscript.com/~giles/jbig2/jbig2dec/%{name}-%{version}.tar.gz
 Patch1:		jbig2dec-0.10-jbig2dec-nullderef.diff
-BuildRequires:	automake1.7
+BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -55,8 +54,7 @@ which requires the jbig2dec library.
 %prep
 
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch1 -p0
 
 # fix strange perms
 find . -type d -perm 0700 -exec chmod 755 {} \;
@@ -64,7 +62,7 @@ find . -type f -perm 0555 -exec chmod 755 {} \;
 find . -type f -perm 0444 -exec chmod 644 {} \;
 
 %build
-libtoolize --copy --force; aclocal-1.7; autoheader; autoconf; automake-1.7 --foreign --copy --add-missing
+libtoolize --copy --force; aclocal; autoheader; autoconf; automake --foreign --copy --add-missing
 
 %configure2_5x
 
@@ -89,6 +87,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %attr(0755,root,root) %{_bindir}/jbig2dec
+%attr(0644,root,root) %{_mandir}/man1/jbig2dec.1*
 
 %files -n %{libname}
 %defattr(-,root,root)
@@ -100,4 +99,3 @@ rm -rf %{buildroot}
 %attr(0644,root,root) %{_includedir}/*.h
 %attr(0644,root,root) %{_libdir}/*.so
 %attr(0644,root,root) %{_libdir}/*.*a
-
