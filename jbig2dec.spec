@@ -5,7 +5,7 @@
 Summary:	A decoder implementation of the JBIG2 image compression format
 Name:		jbig2dec
 Version:	0.11
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2
 Group:		Graphics
 URL:		http://jbig2dec.sourceforge.net/
