@@ -5,15 +5,13 @@
 Summary:	A decoder implementation of the JBIG2 image compression format
 Name:		jbig2dec
 Version:	0.11
-Release:	%mkrel 2
+Release:	3
 License:	GPLv2
 Group:		Graphics
 URL:		http://jbig2dec.sourceforge.net/
 Source0:	http://ghostscript.com/~giles/jbig2/jbig2dec/%{name}-%{version}.tar.gz
 Patch1:		jbig2dec-0.10-jbig2dec-nullderef.diff
-BuildRequires:	automake
-BuildRequires:	libtool
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	autoconf automake libtool
 
 %description
 jbig2dec is a decoder implementation of the JBIG2 image compression format.
@@ -73,29 +71,17 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
+# cleanup
+rm -f %{buildroot}%{_libdir}/*.*a
 
 %files
-%defattr(-,root,root)
 %attr(0755,root,root) %{_bindir}/jbig2dec
 %attr(0644,root,root) %{_mandir}/man1/jbig2dec.1*
 
 %files -n %{libname}
-%defattr(-,root,root)
 %doc CHANGES COPYING LICENSE README
 %attr(0755,root,root) %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %attr(0644,root,root) %{_includedir}/*.h
 %attr(0644,root,root) %{_libdir}/*.so
-%attr(0644,root,root) %{_libdir}/*.*a
