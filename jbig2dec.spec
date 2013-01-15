@@ -10,6 +10,7 @@ License:	GPLv2
 Group:		Graphics
 URL:		http://jbig2dec.sourceforge.net/
 Source0:	http://ghostscript.com/~giles/jbig2/jbig2dec/%{name}-%{version}.tar.gz
+Patch0:		jbig2dec-automake-1.13.patch
 Patch1:		jbig2dec-0.10-jbig2dec-nullderef.diff
 BuildRequires:	autoconf automake libtool
 
@@ -51,6 +52,7 @@ which requires the jbig2dec library.
 
 %prep
 %setup -q
+%patch0 -p1 -b .am113~
 %patch1 -p0
 
 # fix strange perms
