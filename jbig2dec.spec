@@ -4,14 +4,13 @@
 
 Summary:	A decoder implementation of the JBIG2 image compression format
 Name:		jbig2dec
-Version:	0.11
-Release:	21
+Version:	0.15
+Release:	1
 License:	GPLv2
 Group:		Graphics
-Url:		http://jbig2dec.sourceforge.net/
-Source0:	http://ghostscript.com/~giles/jbig2/jbig2dec/%{name}-%{version}.tar.gz
+Url:		http://jbig2dec.com/
+Source0:	https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs924/jbig2dec-%{version}.tar.gz
 Patch0:		jbig2dec-automake-1.13.patch
-Patch1:		jbig2dec-0.10-jbig2dec-nullderef.diff
 BuildRequires:	libtool
 
 %description
