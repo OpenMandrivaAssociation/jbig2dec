@@ -39,7 +39,7 @@ which requires the jbig2dec library.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 autoreconf -fi
 
 # fix strange perms
