@@ -14,7 +14,7 @@
 Summary:	A decoder implementation of the JBIG2 image compression format
 Name:		jbig2dec
 Version:	0.19
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		Graphics
 Url:		http://jbig2dec.com/
