@@ -17,7 +17,7 @@ Version:	0.19
 Release:	2
 License:	GPLv2
 Group:		Graphics
-Url:		http://jbig2dec.com/
+Url:		https://jbig2dec.com/
 Source0:	https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9530/jbig2dec-%{version}.tar.gz
 Patch0:		jbig2dec-automake-1.13.patch
 BuildRequires:	libtool
